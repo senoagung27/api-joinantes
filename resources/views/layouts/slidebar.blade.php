@@ -12,19 +12,34 @@
          <ul class="sidebar-menu">
              <li class="menu-header">Dashboard</li>
              <li class="nav-item dropdown">
-                 <a href="/"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                 <a href="{{ route('home') }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
              </li>
              <li class="menu-header">Data Master</li>
-             <li>
+             <li><a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-user"
+                         aria-hidden="true"></i>
+                     <span>Data Users</span></a></a></li>
+             {{-- <li>
                  <a class="nav-link" href="/Pegawai">
                      <i class="fa fa-user" aria-hidden="true"></i>
                      <span>Pegawai</span></a>
-             </li>
+             </li> --}}
              <li>
                  <a class="nav-link" href="/Cuti">
                      <i class="fas fa-newspaper    "></i>
                      <span>Cuti</span></a>
              </li>
+             <li>
+                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                     <i class="fas fa-newspaper    "></i>
+                     <span>{{ __('Logout') }}</span>
+                 </a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
+             </li>
+
+
 
          </ul>
      </aside>
